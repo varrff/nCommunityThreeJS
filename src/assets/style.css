@@ -1,0 +1,120 @@
+.floorText-3d {
+    width: 120px;
+    height: 48px;
+    display: block;
+    box-sizing: border-box;
+    position: relative;
+    cursor: pointer;
+    color: #fff;
+    font-size: 24px;
+  }
+  
+  .floorText-3d .text {
+    margin-top: -30px;
+    animation: animText 1s ease-in-out infinite alternate;
+    text-align: center;
+  }
+  
+  .floorText-3d::after {
+    content: '';
+    width: 48px;
+    height: 48px;
+    left: 36px;
+    bottom: 0;
+    position: absolute;
+    border-radius: 50% 50% 0;
+    border: 15px solid #fff;
+    transform: rotate(45deg) translate(0, 0);
+    box-sizing: border-box;
+    animation: animMarker 1s ease-in-out infinite alternate;
+  }
+  
+  .floorText-3d::before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    left: 36px;
+    right: 0;
+    margin: auto;
+    top: 150%;
+    width: 24px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+    animation: animShadow 1s ease-in-out infinite alternate;
+  }
+  
+  @keyframes animMarker {
+    0% {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+  
+    100% {
+      transform: rotate(45deg) translate(-5px, -5px);
+    }
+  }
+  
+  @keyframes animText {
+    0% {
+      transform: translateY(5px);
+    }
+  
+    100% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  @keyframes animShadow {
+    0% {
+      transform: scale(0.5);
+    }
+  
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .room-3d {
+    width: 90px;
+    height: 100px;
+    display: block;
+    box-sizing: border-box;
+    position: relative;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .room-3d .text {
+    color: #fff;
+    animation: animText 1s ease-in-out infinite alternate;
+  }
+  
+  .room-3d .camera-bg {
+    background: url('./../assets/image/camera.png') no-repeat;
+    background-size: 100% 100%;
+    width: 48px;
+    height: 48px;
+    animation: animText 1s ease-in-out infinite alternate;
+  }
+  
+  .room-3d .electricity-bg {
+    background: url('./../assets/image/电表.png') no-repeat;
+    background-size: 100% 100%;
+    width: 48px;
+    height: 48px;
+    animation: animText 1s ease-in-out infinite alternate;
+  }
+  
+  .room-3d .water-bg {
+    background: url('./../assets/image/水表.png') no-repeat;
+    background-size: 100% 100%;
+    width: 48px;
+    height: 48px;
+    animation: animText 1s ease-in-out infinite alternate;
+  }
