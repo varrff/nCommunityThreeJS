@@ -4,6 +4,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import TWEEN from "three/examples/jsm/libs/tween.module.js";
+import { addParkWater } from "@/three/parkWater";
 export default class ZThree {
   constructor(id) {
     this.id = id;
@@ -117,6 +118,7 @@ export default class ZThree {
     }
   }
 
+  //加载模型
   iterateLoad(objFileList, onProgress, onAllLoad) {
     let fileIndex = 0;
     let that = this;
@@ -135,6 +137,26 @@ export default class ZThree {
           } else {
             if (onAllLoad) {
               onAllLoad();
+              // let position = [
+              //   {
+              //     x: 2,
+              //     y: 1,
+              //     z: 3,
+              //     name: "103水管",
+              //   },  {
+              //     x: 5,
+              //     y: 2,
+              //     z: 2,
+              //     name: "104水管",
+              //   },
+              //   {
+              //     x: 5,
+              //     y: 2,
+              //     z: 1,
+              //     name: "105水管",
+              //   }
+              // ];
+              // addParkWater(window.app,position);
             }
           }
         },
@@ -177,19 +199,19 @@ export default class ZThree {
     }
 
     // 判断是否与模型相交，设置鼠标样式
-  let isIntersected = false;
-  for (let i = 0; i < models.length; i++) {
-    if (activeObj.object === models[i]) {
-      isIntersected = true;
-      break;
+    let isIntersected = false;
+    for (let i = 0; i < models.length; i++) {
+      if (activeObj.object === models[i]) {
+        isIntersected = true;
+        break;
+      }
     }
-  }
 
-  // if (isIntersected) {
-  //   document.body.style.cursor = "pointer"; // 与模型相交时，设置为小手指针样式
-  // } else {
-  //   document.body.style.cursor = "default"; // 未与模型相交时，设置为默认样式
-  // }
+    // if (isIntersected) {
+    //   document.body.style.cursor = "pointer"; // 与模型相交时，设置为小手指针样式
+    // } else {
+    //   document.body.style.cursor = "default"; // 未与模型相交时，设置为默认样式
+    // }
     //鼠标的变换
     // document.body.style.cursor = "pointer";
   }

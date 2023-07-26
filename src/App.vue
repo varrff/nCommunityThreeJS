@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view/>
+    <h1 class="title">智慧园区</h1>
+    <img class="header-img" src="@/assets/image/header.png" alt="">
+    <router-view />
   </div>
 </template>
 
@@ -13,18 +15,23 @@
   color: #2c3e50;
   width: 100%;
   height: 100%;
-}
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold; 
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  .title{
+    position: fixed;
+    top: 0vh;
+    font-size: 35px;
+    color: aliceblue;
+    width: 100vw;
+    left: 50%;
+    z-index: 3;
+    transform: translateX(-50%);
+  }
+  .header-img {
+    position: fixed;
+    top: -6vh;
+    width: 100vw;
+    left: 50%;
+    z-index: 2;
+    transform: translateX(-50%);
   }
 }
 </style>

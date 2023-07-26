@@ -11,9 +11,9 @@ export function loaderModel(app) {
       {
         type: "glb",
         //模型地址
-        url: "model/model.glb",
+        // url: "model/model.glb",
         //线上地址
-        // url: "https://newhao.oss-cn-beijing.aliyuncs.com/model.glb",
+        url: "https://mp-fdbc9db4-eb1b-456f-984f-47ee229039f3.cdn.bspapp.com/model.glb",
         onLoad: (object) => {
           app.scene.add(object.scene);
           app.model = object.scene;

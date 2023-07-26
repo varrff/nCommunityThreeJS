@@ -73,10 +73,12 @@ export function createFloorText(app) {
 
 // 楼层的文字
 export function createRoomText(app, model) {
+  console.log(model.name);
   model.traverse((obj) => {
     if (obj.isMesh) {
       roomTexts.forEach((item) => {
         if (obj.name.indexOf(item.name) > -1) {
+  
           const name = obj.name;
           const position = Object.values(app.getModelWorldPosition(obj));
           const html = `<div class="room-3d animated fadeIn" id="${name}" _type="${item.type}"><p class="text">${name}</p>
@@ -95,12 +97,14 @@ export function createRoomText(app, model) {
     }
   });
   const textDoms = document.getElementsByClassName("room-3d");
+  console.log(textDoms);
   for (let i = 0; i < textDoms.length; i++) {
     const textDom = textDoms[i];
     textDom.onclick = event => {
         //点击某个具体的房间内容触发的点击事件，实际中替换成发送的api接口
         const type = textDom.getAttribute('_type')
         const model = app.model.getObjectByName(textDom.id)
+        // 通知具体窗口的显示
         EventBus.$emit("changeRoomTooltip", {
             name: model.name,
             type,
@@ -116,7 +120,7 @@ export function createRoomText(app, model) {
 export function setModelLayer(app, model, layerName, layerData, callback) {
     destroyControlsGroupText(app, "room-3d");
   const currentLayer = Number(layerName.substr(0, layerName.indexOf("F")));
-
+  console.log(layerName);
   for (let i = 0; i < model.children.length; i++) {
     let mesh = model.children[i];
     let name = mesh.name;
@@ -187,6 +191,8 @@ export function setModelLayer(app, model, layerName, layerData, callback) {
                 ],
                 controls: centerPosition,
                 done: () => {
+                  console.log(mesh);
+                  // 这里传入的是单层楼的模型
                   createRoomText(app, mesh);
                 },
               });

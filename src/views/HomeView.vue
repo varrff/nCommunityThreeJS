@@ -15,6 +15,7 @@ import { CSS3DRenderer } from 'three/examples/jsm/renderers/CSS3DRenderer'
 import { cssRender } from '@/three/cssRender'
 import { createReprocessing } from '@/three/reprocessing';
 import { darkMaterial } from '@/three/material'
+import {addParkWater} from '@/three/parkWater'
 let app, camera, scene, renderer, controls, clock, reprocessing, materials={}
 export default {
   name: 'HomeView',
@@ -70,6 +71,7 @@ export default {
         app.cssRenderer.render(scene, camera)
         TWEEN.update()
       })
+
     }
     //开启辉光
     ,
@@ -85,6 +87,7 @@ export default {
         delete materials[obj.uuid];
       }
     }
+
   },
   mounted() {
     this.initZThree();
