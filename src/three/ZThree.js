@@ -62,6 +62,14 @@ export default class ZThree {
     controls.autoRotateSpeed = 0.5;
     // 开启平移功能
     controls.enablePan = true;
+
+    // 限制缩放范围
+    controls.minDistance = 1;
+    controls.maxDistance = 100;
+    // 限制垂直旋转范围
+    controls.minPolarAngle = 0;
+    controls.maxPolarAngle = Math.PI / 2;
+
     // 将创建的控制对象赋值给this.controls，以便其他方法能够访问和使用这个控制对象
     this.controls = controls;
   }
